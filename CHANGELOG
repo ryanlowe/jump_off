@@ -1,6 +1,7 @@
 
 
 Jul 27
+= add ryanlowe plugins
 - add front page
 = add Site controller
 = add Rails 2.1.0 to vendor/rails
