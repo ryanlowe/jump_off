@@ -13,5 +13,10 @@ ActionController::Routing::Routes.draw do |map|
     account.signup  '/signup',  :action => 'signup'
     account.logout  '/logout',  :action => 'logout'
   end
+  
+  #home
+  map.with_options :controller => "home" do |home|
+    home.home '/home', :action => 'index'
+  end
 
 end
