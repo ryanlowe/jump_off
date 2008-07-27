@@ -1,10 +1,12 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
 class UserTest < Test::Unit::TestCase
-  # Be sure to include AuthenticatedTestHelper in test/test_helper.rb instead.
-  # Then, you can remove it from this and the functional test.
-  include AuthenticatedTestHelper
   fixtures :users
+  
+  def test_fixtures
+    assert users(:ryanlowe).valid?
+    assert users(:jonny).valid?
+  end
 
   def test_should_create_user
     assert_difference User, :count do
@@ -42,30 +44,30 @@ class UserTest < Test::Unit::TestCase
   end
 
   def test_should_reset_password
-    users(:quentin).update_attributes(:password => 'new password', :password_confirmation => 'new password')
-    assert_equal users(:quentin), User.authenticate('quentin', 'new password')
+    users(:ryanlowe).update_attributes(:password => 'new password', :password_confirmation => 'new password')
+    assert_equal users(:ryanlowe), User.authenticate('ryanlowe', 'new password')
   end
 
   def test_should_not_rehash_password
-    users(:quentin).update_attributes(:login => 'quentin2')
-    assert_equal users(:quentin), User.authenticate('quentin2', 'test')
+    users(:ryanlowe).update_attributes(:login => 'ryanlowe2')
+    assert_equal users(:ryanlowe), User.authenticate('ryanlowe2', 'test')
   end
 
   def test_should_authenticate_user
-    assert_equal users(:quentin), User.authenticate('quentin', 'test')
+    assert_equal users(:ryanlowe), User.authenticate('ryanlowe', 'test')
   end
 
   def test_should_set_remember_token
-    users(:quentin).remember_me
-    assert_not_nil users(:quentin).remember_token
-    assert_not_nil users(:quentin).remember_token_expires_at
+    users(:ryanlowe).remember_me
+    assert_not_nil users(:ryanlowe).remember_token
+    assert_not_nil users(:ryanlowe).remember_token_expires_at
   end
 
   def test_should_unset_remember_token
-    users(:quentin).remember_me
-    assert_not_nil users(:quentin).remember_token
-    users(:quentin).forget_me
-    assert_nil users(:quentin).remember_token
+    users(:ryanlowe).remember_me
+    assert_not_nil users(:ryanlowe).remember_token
+    users(:ryanlowe).forget_me
+    assert_nil users(:ryanlowe).remember_token
   end
 
   protected
