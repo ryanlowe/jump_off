@@ -1,5 +1,6 @@
 
 
 Jul 27
+= don't put database.yml in source control
 = add admin files
 = add Rails baseline
