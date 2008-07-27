@@ -14,13 +14,11 @@
 <%= render :partial => 'layouts/header' %>
 <%= render :partial => 'layouts/tabs' %>
 <%= render :partial => 'layouts/flash', :locals => { :flash => flash } %>
-  <div id="main">
-    <div id="content">
+  <div id="content">
 <% unless @omit_h1 -%>
-      <h1><%=h @title %></h1>
+    <h1><%=h @title %></h1>
 <% end -%>
 <%= yield %>
-    </div>
   </div>
 <%= render :partial => 'layouts/footer' %>
 </div>
