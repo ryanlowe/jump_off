@@ -1,5 +1,6 @@
 
 Jul 27
+= auth: put includes in the right place
 = add acts_as_authenticated generated code for baseline
 = add validates_existence plugin
 = add exception_notification plugin

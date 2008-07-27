@@ -1,10 +1,5 @@
 class AccountController < ApplicationController
-  # Be sure to include AuthenticationSystem in Application Controller instead
-  include AuthenticatedSystem
-  # If you want "remember me" functionality, add this before_filter to Application Controller
-  before_filter :login_from_cookie
-
-  # say something nice, you goof!  something sweet.
+  
   def index
     redirect_to(:action => 'signup') unless logged_in? || User.count > 0
   end
@@ -40,4 +35,5 @@ class AccountController < ApplicationController
     flash[:notice] = "You have been logged out."
     redirect_back_or_default(:controller => '/account', :action => 'index')
   end
+  
 end
