@@ -67,45 +67,24 @@ class AccountControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-  def test_should_remember_me
-    post :login, :login => 'ryanlowe', :password => 'test', :remember_me => "1"
-    assert_not_nil @response.cookies["auth_token"]
-  end
-
-  def test_should_not_remember_me
-    post :login, :login => 'ryanlowe', :password => 'test', :remember_me => "0"
-    assert_nil @response.cookies["auth_token"]
-  end
-  
-  def test_should_delete_token_on_logout
-    login_as :ryanlowe
-    get :logout
-    assert_equal @response.cookies["auth_token"], []
-  end
-
-  def test_should_login_with_cookie
-    users(:ryanlowe).remember_me
-    @request.cookies["auth_token"] = cookie_for(:ryanlowe)
-    get :index
-    assert @controller.send(:logged_in?)
-  end
-
-  def test_should_fail_expired_cookie_login
-    users(:ryanlowe).remember_me
-    users(:ryanlowe).update_attribute :remember_token_expires_at, 5.minutes.ago
-    @request.cookies["auth_token"] = cookie_for(:ryanlowe)
-    get :index
-    assert !@controller.send(:logged_in?)
-  end
-
-  def test_should_fail_cookie_login
-    users(:ryanlowe).remember_me
-    @request.cookies["auth_token"] = auth_token('invalid_auth_token')
-    get :index
-    assert !@controller.send(:logged_in?)
-  end
+  # def test_should_remember_me
+  #   post :login, :login => 'ryanlowe', :password => 'test', :remember_me => "1"
+  #   assert_not_nil @response.cookies["auth_token"]
+  # end
+  # 
+  # def test_should_not_remember_me
+  #   post :login, :login => 'ryanlowe', :password => 'test', :remember_me => "0"
+  #   assert_nil @response.cookies["auth_token"]
+  # end
+  # 
+  # def test_should_delete_token_on_logout
+  #   login_as :ryanlowe
+  #   get :logout
+  #   assert_equal @response.cookies["auth_token"], []
+  # end
 
   protected
+  
     def create_user(options = {})
       post :signup, :user => { :login => 'quire', :email => 'quire@example.com', 
         :password => 'quire', :password_confirmation => 'quire' }.merge(options)
@@ -118,4 +97,5 @@ class AccountControllerTest < ActionController::TestCase
     def cookie_for(user)
       auth_token users(user).remember_token
     end
+    
 end

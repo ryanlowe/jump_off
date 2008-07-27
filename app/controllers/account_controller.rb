@@ -1,18 +1,14 @@
 class AccountController < ApplicationController
   
-  def index
-    redirect_to(:action => 'signup') unless logged_in? || User.count > 0
-  end
-
   def login
     return unless request.post?
     self.current_user = User.authenticate(params[:login], params[:password])
     if logged_in?
-      if params[:remember_me] == "1"
-        self.current_user.remember_me
-        cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
-      end
-      redirect_back_or_default(:controller => '/account', :action => 'index')
+      # if params[:remember_me] == "1"
+      #   self.current_user.remember_me
+      #   cookies[:auth_token] = { :value => self.current_user.remember_token , :expires => self.current_user.remember_token_expires_at }
+      # end
+      redirect_back_or_default(home_url)
       flash[:notice] = "Logged in successfully"
     end
   end
@@ -22,18 +18,22 @@ class AccountController < ApplicationController
     return unless request.post?
     @user.save!
     self.current_user = @user
-    redirect_back_or_default(:controller => '/account', :action => 'index')
+    redirect_back_or_default(success_url)
     flash[:notice] = "Thanks for signing up!"
   rescue ActiveRecord::RecordInvalid
     render :action => 'signup'
   end
   
+  def success
+    @title = "Sign Up Successful"
+  end
+  
   def logout
     self.current_user.forget_me if logged_in?
-    cookies.delete :auth_token
+    # cookies.delete :auth_token
     reset_session
     flash[:notice] = "You have been logged out."
-    redirect_back_or_default(:controller => '/account', :action => 'index')
+    redirect_back_or_default(front_url)
   end
   
 end

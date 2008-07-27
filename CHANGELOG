@@ -1,5 +1,6 @@
 
 Jul 27
+= remove account/index and use home instead
 = move mailers and observers out of models directory
 = change rhtml views to html.erb
 - add home page
