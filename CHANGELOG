@@ -1,5 +1,6 @@
 
 Jul 27
+= change rhtml views to html.erb
 - add home page
 = add Home controller
 = change fixture names
