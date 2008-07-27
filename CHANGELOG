@@ -1,5 +1,6 @@
 
 Jul 27
+= add validates_existence plugin
 = add exception_notification plugin
 = add ryanlowe plugins
 - add front page
