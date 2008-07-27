@@ -1,3 +1,8 @@
 
 - use signup activation
 - only log out on POST
+- fill last_logged_in_at
+
+- user profiles, list
+- sending messages
+- watching users
