@@ -1,5 +1,6 @@
 
 Jul 27
+- adjust layout margins
 - add top right menu
 = add basic layout and stylesheets
 = remove account/index and use home instead

@@ -1,2 +1,3 @@
 
 - use signup activation
+- only log out on POST

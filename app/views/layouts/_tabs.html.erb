@@ -1,5 +1,7 @@
-<div>
+<% if logged_in? -%>
+<div id="tabs">
   <ul class="collapsed menu">
     <li class="first"><%= link_to 'Home', home_url %></li>
   </ul>
 </div>
+<% end -%>
