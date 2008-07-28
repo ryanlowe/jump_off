@@ -2,8 +2,14 @@
 - only log out on POST
 - fill last_touched_at
 - cleanup authentication to basics
+  -- change login to username
 - test Capistrano deploy.rb
 - pull out names as constants
+- use ActiveRecord session store
+
+- until launch site should be protected and return 404
+  -- make the transition in one place, back and forth
+  -- tests should verify the transition too
 
 Big Stuff:
 - administrator role and area

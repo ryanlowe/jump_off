@@ -19,5 +19,13 @@ ActionController::Routing::Routes.draw do |map|
   map.with_options :controller => "home" do |home|
     home.home '/home', :action => 'index'
   end
+  
+  ### PUBLIC AREAS
+  
+  #profile
+  map.with_options :controller => "profile" do |profile|
+    profile.connect '/person/:login', :action => 'user'
+    profile.people  '/people',        :action => 'list'
+  end
 
 end
