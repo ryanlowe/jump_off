@@ -1,12 +1,14 @@
 
-- only log out on POST
-- fill last_touched_at
 - cleanup authentication to basics
+- only log out on POST
+
+- fill last_touched_at
 - test Capistrano deploy.rb
 - pull out names as constants
   -- mailers
   
 - until launch site should be protected and return 404
+  -- coming soon page?
   -- make the transition in one place, back and forth
   -- tests should verify the transition too
 
@@ -24,3 +26,4 @@ Big Stuff:
 - preference store
 - profile photo
 - news feed (CRUDed objects by watched users)
+- queued mail delivery

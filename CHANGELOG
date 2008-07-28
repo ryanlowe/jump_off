@@ -1,5 +1,6 @@
 
 Jul 28
+= remove more cookie and http auth cruft from auth library
 - do not require email for sign up
 = comment out user mailer and observer code
 = use session active record store
