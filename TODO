@@ -1,7 +1,8 @@
 
+* remove HOST
+
 - cleanup authentication to basics
 - only log out on POST
-
 - fill last_touched_at
 - test Capistrano deploy.rb
 - pull out names as constants

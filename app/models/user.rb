@@ -32,6 +32,16 @@ class User < ActiveRecord::Base
   def authenticated?(password)
     crypted_password == encrypt(password)
   end
+  
+  ###
+  
+  def is?(user)
+    (self.id == user.id)
+  end
+  
+  def full_name
+    username
+  end
 
   protected
   

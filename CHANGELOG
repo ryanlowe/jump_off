@@ -1,5 +1,8 @@
 
 Jul 28
+- users can send messages to each other
+= add Messages controller
+= add Message model
 - return 404 if not launched and request not authenticated
 = add Mocha 0.9.0
 = remove more cookie and http auth cruft from auth library
