@@ -22,10 +22,6 @@ class AccountController < ApplicationController
     render :action => 'signup'
   end
   
-  def success
-    @title = "Sign Up Successful"
-  end
-  
   def logout
     reset_session
     flash[:notice] = "You have been logged out."
