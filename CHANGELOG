@@ -1,5 +1,6 @@
 
 Jul 28
+= comment out user mailer and observer code
 = use session active record store
 - remove signup success page
 = change User#login to User#username

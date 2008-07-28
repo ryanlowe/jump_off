@@ -4,8 +4,8 @@
 - cleanup authentication to basics
 - test Capistrano deploy.rb
 - pull out names as constants
-- use ActiveRecord session store
-
+  -- mailers
+  
 - until launch site should be protected and return 404
   -- make the transition in one place, back and forth
   -- tests should verify the transition too
