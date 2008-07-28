@@ -1,5 +1,6 @@
 
 Jul 28
+= use session active record store
 - remove signup success page
 = change User#login to User#username
 - user profiles and list
