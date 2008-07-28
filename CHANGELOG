@@ -1,5 +1,6 @@
 
 Jul 28
+- do not require email for sign up
 = comment out user mailer and observer code
 = use session active record store
 - remove signup success page

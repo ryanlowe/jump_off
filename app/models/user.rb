@@ -3,14 +3,14 @@ class User < ActiveRecord::Base
   # Virtual attribute for the unencrypted password
   attr_accessor :password
 
-  validates_presence_of     :username, :email
+  validates_presence_of     :username
   validates_presence_of     :password,                   :if => :password_required?
   validates_presence_of     :password_confirmation,      :if => :password_required?
   validates_length_of       :password, :within => 4..40, :if => :password_required?
   validates_confirmation_of :password,                   :if => :password_required?
-  validates_length_of       :username,    :within => 3..40
-  validates_length_of       :email,    :within => 3..100
-  validates_uniqueness_of   :username, :email, :case_sensitive => false
+  validates_length_of       :username, :within => 3..40
+  validates_length_of       :email,    :within => 3..100, :allow_nil => true, :allow_blank => true
+  validates_uniqueness_of   :username, :case_sensitive => false
   before_save :encrypt_password
 
   # Authenticates a user by their username and unencrypted password.  Returns the user or nil.
@@ -33,24 +33,8 @@ class User < ActiveRecord::Base
     crypted_password == encrypt(password)
   end
 
-  def remember_token?
-    remember_token_expires_at && Time.now.utc < remember_token_expires_at 
-  end
-
-  # These create and unset the fields required for remembering users between browser closes
-  def remember_me
-    self.remember_token_expires_at = 2.weeks.from_now.utc
-    self.remember_token            = encrypt("#{email}--#{remember_token_expires_at}")
-    save(false)
-  end
-
-  def forget_me
-    self.remember_token_expires_at = nil
-    self.remember_token            = nil
-    save(false)
-  end
-
   protected
+  
     # before filter 
     def encrypt_password
       return if password.blank?
@@ -61,4 +45,5 @@ class User < ActiveRecord::Base
     def password_required?
       crypted_password.blank? || !password.blank?
     end
+    
 end

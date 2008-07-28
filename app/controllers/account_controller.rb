@@ -27,7 +27,6 @@ class AccountController < ApplicationController
   end
   
   def logout
-    self.current_user.forget_me if logged_in?
     reset_session
     flash[:notice] = "You have been logged out."
     redirect_back_or_default(front_url)

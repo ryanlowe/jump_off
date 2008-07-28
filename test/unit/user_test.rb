@@ -17,29 +17,29 @@ class UserTest < Test::Unit::TestCase
 
   def test_should_require_username
     assert_no_difference User, :count do
-      u = create_user(:username => nil)
-      assert u.errors.on(:username)
+      user = create_user(:username => nil)
+      assert user.errors.on(:username)
     end
   end
 
   def test_should_require_password
     assert_no_difference User, :count do
-      u = create_user(:password => nil)
-      assert u.errors.on(:password)
+      user = create_user(:password => nil)
+      assert user.errors.on(:password)
     end
   end
 
   def test_should_require_password_confirmation
     assert_no_difference User, :count do
-      u = create_user(:password_confirmation => nil)
-      assert u.errors.on(:password_confirmation)
+      user = create_user(:password_confirmation => nil)
+      assert user.errors.on(:password_confirmation)
     end
   end
 
-  def test_should_require_email
-    assert_no_difference User, :count do
-      u = create_user(:email => nil)
-      assert u.errors.on(:email)
+  def test_should_not_require_email
+    assert_difference User, :count do
+      user = create_user(:email => nil)
+      assert_equal 0, user.errors.size
     end
   end
 
@@ -57,21 +57,10 @@ class UserTest < Test::Unit::TestCase
     assert_equal users(:ryanlowe), User.authenticate('ryanlowe', 'test')
   end
 
-  def test_should_set_remember_token
-    users(:ryanlowe).remember_me
-    assert_not_nil users(:ryanlowe).remember_token
-    assert_not_nil users(:ryanlowe).remember_token_expires_at
-  end
-
-  def test_should_unset_remember_token
-    users(:ryanlowe).remember_me
-    assert_not_nil users(:ryanlowe).remember_token
-    users(:ryanlowe).forget_me
-    assert_nil users(:ryanlowe).remember_token
-  end
-
   protected
+  
     def create_user(options = {})
       User.create({ :username => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))
     end
+    
 end
