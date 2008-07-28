@@ -1,5 +1,7 @@
 
 Jul 28
+- return 404 if not launched and request not authenticated
+= add Mocha 0.9.0
 = remove more cookie and http auth cruft from auth library
 - do not require email for sign up
 = comment out user mailer and observer code

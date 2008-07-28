@@ -8,13 +8,38 @@ class SiteControllerTest < ActionController::TestCase
     assert '/',     :controller => 'site', :action => 'front'
   end
   
+  #
+  # boom!
+  #
+  
   def test_boom
     assert_raises(RuntimeError) {
       get :boom
     }
   end
   
+  def test_boom_not_launched
+    launched false
+    
+    assert_raises(RuntimeError) {
+      get :boom
+    }
+  end
+  
+  #
+  # front
+  #
+  
   def test_front
+    get :front
+    
+    assert_response :success
+    assert_template 'front'
+  end
+  
+  def test_front
+    launched false
+    
     get :front
     
     assert_response :success

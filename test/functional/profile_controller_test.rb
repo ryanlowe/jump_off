@@ -39,11 +39,24 @@ class ProfileControllerTest < ActionController::TestCase
     }
   end
   
-  def test_user_not_logged_in
+  def test_user_not_logged_in_not_launched
+    launched false
+    
     get :user, :username => users(:ryanlowe).username
     
-    assert_response :redirect
-    assert_redirected_to login_url
+    assert_response :not_found
+    
+    assert_nil assigns(:user)
+  end
+  
+  def test_user_not_logged_in_launched
+    launched true
+    
+    get :user, :username => users(:ryanlowe).username
+    
+    assert_response :success
+    assert_template 'user'
+    assert_equal users(:ryanlowe), assigns(:user)
   end
   
   #
@@ -60,11 +73,24 @@ class ProfileControllerTest < ActionController::TestCase
     assert_equal User.count, assigns(:users).size
   end
   
-  def test_list_not_logged_in
+  def test_list_not_logged_in_not_launched
+    launched false
+    
     get :list
     
-    assert_response :redirect
-    assert_redirected_to login_url
+    assert_response :not_found
+    
+    assert_nil assigns(:users)
+  end
+  
+  def test_list_not_logged_in_launched
+    launched true
+    
+    get :list
+    
+    assert_response :success
+    assert_template 'list'
+    assert_equal User.count, assigns(:users).size
   end
   
 end

@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   
-  before_filter :login_required
+  prepend_before_filter :login_required
   
   def index
     @title = "Home"

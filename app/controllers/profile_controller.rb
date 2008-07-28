@@ -1,7 +1,5 @@
 class ProfileController < ApplicationController
 
-  before_filter :login_required
-
   def user
     @user = User.find_by_username(params[:username])
     raise ActiveRecord::RecordNotFound if @user.nil?

@@ -2,6 +2,10 @@ module AuthenticatedSystem
   
   protected
   
+    def launched?
+      false
+    end
+  
     # Returns true or false if the user is logged in.
     # Preloads @current_user with the user model if they're logged in.
     def logged_in?
@@ -37,6 +41,10 @@ module AuthenticatedSystem
       logged_in? ? true : access_denied
     end
     
+    def launch_required
+      (launched? or logged_in?) ? true : access_denied
+    end
+    
     # Redirect as appropriate when an access request fails.
     #
     # The default action is to redirect to the login screen.
@@ -46,10 +54,18 @@ module AuthenticatedSystem
     # to access the requested action.  For example, a popup window might
     # simply close itself.
     def access_denied
-      store_location
-      redirect_to login_url
+      if launched?
+        store_location
+        redirect_to login_url
+      else
+        render_404
+      end
       false
-    end  
+    end
+    
+    def render_404
+      render :file => "site/404.html", :use_full_path => true, :status => 404
+    end
     
     # Store the URI of the current request in the session.
     #

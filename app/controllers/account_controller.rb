@@ -1,4 +1,6 @@
 class AccountController < ApplicationController
+
+  skip_before_filter :launch_required
   
   def login
     @title = "Log in"
