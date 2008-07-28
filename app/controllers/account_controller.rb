@@ -16,8 +16,8 @@ class AccountController < ApplicationController
     return unless request.post?
     @user.save!
     self.current_user = @user
-    redirect_back_or_default(success_url)
-    flash[:notice] = "Thanks for signing up!"
+    redirect_back_or_default(home_url)
+    flash[:notice] = "Thanks for signing up! You have been logged in."
   rescue ActiveRecord::RecordInvalid
     render :action => 'signup'
   end

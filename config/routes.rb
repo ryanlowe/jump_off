@@ -11,7 +11,6 @@ ActionController::Routing::Routes.draw do |map|
     account.connect '/account', :action => 'index'
     account.login   '/login',   :action => 'login'
     account.signup  '/signup',  :action => 'signup'
-    account.success '/signup-success', :action => 'success'
     account.logout  '/logout',  :action => 'logout'
   end
   
