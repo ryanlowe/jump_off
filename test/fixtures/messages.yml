@@ -1,0 +1,14 @@
+ryanlowe2jonny:
+  id: 500001
+  sent_by: 100001 # ryanlowe
+  sent_to: 100002 # jonny
+  subject: Hey!
+  body: Just wondering how you are doing...
+  
+jonny2ryanlowe:
+  id: 500002
+  in_reply_to: 500001 # ryanlowe2jonny 
+  sent_by: 100002 # jonny
+  sent_to: 100001 # ryanlowe
+  subject: 'Re: Hey!'
+  body: Hey back! How are you?
