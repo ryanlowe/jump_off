@@ -24,8 +24,8 @@ ActionController::Routing::Routes.draw do |map|
   
   #profile
   map.with_options :controller => "profile" do |profile|
-    profile.connect '/person/:login', :action => 'user'
-    profile.people  '/people',        :action => 'list'
+    profile.connect '/person/:username', :action => 'user'
+    profile.people  '/people',           :action => 'list'
   end
 
 end

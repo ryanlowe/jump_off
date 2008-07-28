@@ -4,7 +4,7 @@ class ProfileControllerTest < ActionController::TestCase
   fixtures :users
   
   def test_routing
-    assert_routing '/person/ryanlowe', :controller => 'profile', :action => 'user', :login => 'ryanlowe'
+    assert_routing '/person/ryanlowe', :controller => 'profile', :action => 'user', :username => 'ryanlowe'
     assert_routing '/people',          :controller => 'profile', :action => 'list'
   end
   
@@ -15,7 +15,7 @@ class ProfileControllerTest < ActionController::TestCase
   def test_user
     login_as :jonny
     
-    get :user, :login => users(:ryanlowe).login
+    get :user, :username => users(:ryanlowe).username
     
     assert_response :success
     assert_template 'user'
@@ -24,14 +24,14 @@ class ProfileControllerTest < ActionController::TestCase
   
   def test_user_does_not_exist
     login_as :jonny
-    assert_nil User.find_by_login('stu')
+    assert_nil User.find_by_username('stu')
   
     assert_raises(ActiveRecord::RecordNotFound) {
-      get :user, :login => 'stu'
+      get :user, :username => 'stu'
     }
   end
   
-  def test_user_login_missing
+  def test_user_username_missing
     login_as :jonny
   
     assert_raises(ActionController::RoutingError) {
@@ -40,7 +40,7 @@ class ProfileControllerTest < ActionController::TestCase
   end
   
   def test_user_not_logged_in
-    get :user, :login => users(:ryanlowe).login
+    get :user, :username => users(:ryanlowe).username
     
     assert_response :redirect
     assert_redirected_to login_url

@@ -15,10 +15,10 @@ class UserTest < Test::Unit::TestCase
     end
   end
 
-  def test_should_require_login
+  def test_should_require_username
     assert_no_difference User, :count do
-      u = create_user(:login => nil)
-      assert u.errors.on(:login)
+      u = create_user(:username => nil)
+      assert u.errors.on(:username)
     end
   end
 
@@ -49,7 +49,7 @@ class UserTest < Test::Unit::TestCase
   end
 
   def test_should_not_rehash_password
-    users(:ryanlowe).update_attributes(:login => 'ryanlowe2')
+    users(:ryanlowe).update_attributes(:username => 'ryanlowe2')
     assert_equal users(:ryanlowe), User.authenticate('ryanlowe2', 'test')
   end
 
@@ -72,6 +72,6 @@ class UserTest < Test::Unit::TestCase
 
   protected
     def create_user(options = {})
-      User.create({ :login => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))
+      User.create({ :username => 'quire', :email => 'quire@example.com', :password => 'quire', :password_confirmation => 'quire' }.merge(options))
     end
 end

@@ -3,13 +3,13 @@ class ProfileController < ApplicationController
   before_filter :login_required
 
   def user
-    @user = User.find_by_login(params[:login])
+    @user = User.find_by_username(params[:username])
     raise ActiveRecord::RecordNotFound if @user.nil?
-    @title = @user.login
+    @title = @user.username
   end
 
   def list
-    @users = User.find(:all, :order => 'login ASC')
+    @users = User.find(:all, :order => 'username ASC')
     @title = "People"
   end
 

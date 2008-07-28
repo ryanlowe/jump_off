@@ -10,13 +10,13 @@ class AccountControllerTest < ActionController::TestCase
   end
 
   def test_should_login_and_redirect
-    post :login, :login => 'ryanlowe', :password => 'test'
+    post :login, :username => 'ryanlowe', :password => 'test'
     assert session[:user]
     assert_response :redirect
   end
 
   def test_should_fail_login_and_not_redirect
-    post :login, :login => 'ryanlowe', :password => 'bad password'
+    post :login, :username => 'ryanlowe', :password => 'bad password'
     assert_nil session[:user]
     assert_response :success
   end
@@ -28,10 +28,10 @@ class AccountControllerTest < ActionController::TestCase
     end
   end
 
-  def test_should_require_login_on_signup
+  def test_should_require_username_on_signup
     assert_no_difference User, :count do
-      create_user(:login => nil)
-      assert assigns(:user).errors.on(:login)
+      create_user(:username => nil)
+      assert assigns(:user).errors.on(:username)
       assert_response :success
     end
   end
@@ -67,26 +67,10 @@ class AccountControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-  # def test_should_remember_me
-  #   post :login, :login => 'ryanlowe', :password => 'test', :remember_me => "1"
-  #   assert_not_nil @response.cookies["auth_token"]
-  # end
-  # 
-  # def test_should_not_remember_me
-  #   post :login, :login => 'ryanlowe', :password => 'test', :remember_me => "0"
-  #   assert_nil @response.cookies["auth_token"]
-  # end
-  # 
-  # def test_should_delete_token_on_logout
-  #   login_as :ryanlowe
-  #   get :logout
-  #   assert_equal @response.cookies["auth_token"], []
-  # end
-
   protected
   
     def create_user(options = {})
-      post :signup, :user => { :login => 'quire', :email => 'quire@example.com', 
+      post :signup, :user => { :username => 'quire', :email => 'quire@example.com', 
         :password => 'quire', :password_confirmation => 'quire' }.merge(options)
     end
     

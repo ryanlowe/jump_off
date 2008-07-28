@@ -27,7 +27,7 @@ module AuthenticatedSystem
     #
     #  # only allow nonbobs
     #  def authorize?
-    #    current_user.login != "bob"
+    #    current_user.username != "bob"
     #  end
     def authorized?
       true
@@ -62,17 +62,8 @@ module AuthenticatedSystem
     # to access the requested action.  For example, a popup window might
     # simply close itself.
     def access_denied
-      respond_to do |accepts|
-        accepts.html do
-          store_location
-          redirect_to :controller => '/account', :action => 'login'
-        end
-        accepts.xml do
-          headers["Status"]           = "Unauthorized"
-          headers["WWW-Authenticate"] = %(Basic realm="Web Password")
-          render :text => "Could't authenticate you", :status => '401 Unauthorized'
-        end
-      end
+      store_location
+      redirect_to :controller => '/account', :action => 'login'
       false
     end  
     

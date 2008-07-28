@@ -1,5 +1,5 @@
 module ProfileHelper
   def link_profile(user)
-    link_to h(user.login), :controller => 'profile', :action => 'user', :login => user.login
+    link_to h(user.username), :controller => 'profile', :action => 'user', :username => user.username
   end
 end

@@ -1,7 +1,7 @@
 <div id="top-right">
 <% if logged_in? -%>
         <ul class="collapsed menu">
-          <li class="first">You are <b><%=h current_user.login %></b></li>
+          <li class="first">You are <b><%=h current_user.username %></b></li>
           <li><%= link_to "Log out", logout_url, :rel => "nofollow" %></li>
         </ul>
 <% else -%>

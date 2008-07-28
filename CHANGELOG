@@ -1,5 +1,6 @@
 
 Jul 28
+= change User#login to User#username
 - user profiles and list
 = add Profile controller
 = add Capistrano files

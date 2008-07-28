@@ -1,4 +1,6 @@
 
+* remove success page, go to home page
+
 - only log out on POST
 - fill last_touched_at
 - cleanup authentication to basics
