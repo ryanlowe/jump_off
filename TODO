@@ -1,8 +1,21 @@
 
-- use signup activation
 - only log out on POST
-- fill last_logged_in_at
+- fill last_touched_at
+- cleanup authentication to basics
+- test Capistrano deploy.rb
+- pull out names as constants
 
-- user profiles, list
-- sending messages
+Big Stuff:
+- administrator role and area
+- public user profiles, public list
+- sitemaps
+- sending private messages
 - watching users
+- friending users
+- settings
+- time zone preference
+- change password
+- validate email address
+- preference store
+- profile photo
+- news feed (CRUDed objects by watched users)
