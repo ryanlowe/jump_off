@@ -19,6 +19,11 @@ Enjoy.  Feel free to rip giant holes in it by commenting and forking.
 - push to your favourite remote repository
 - customize it
 
+## Features
+
+- user profiles
+- users can send private messages
+
 ## Updates
 
 This project will continue to change as a baseline for new Rails projects.

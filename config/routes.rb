@@ -14,6 +14,14 @@ ActionController::Routing::Routes.draw do |map|
     account.logout  '/logout',  :action => 'logout'
   end
   
+  #settings
+  map.with_options :controller => "settings" do |settings|
+    # settings.preferences     '/settings/preferences',        :action => 'preferences'
+    # settings.connect         '/settings/update/preferences', :action => 'update_preferences'
+    settings.change_password '/settings/change/password',    :action => 'change_password'
+    settings.connect         '/settings/update/password',    :action => 'update_password'
+  end
+  
   #home
   map.with_options :controller => "home" do |home|
     home.home '/home', :action => 'index'

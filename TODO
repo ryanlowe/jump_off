@@ -1,5 +1,6 @@
 
-* remove HOST
+* remove HOST, read from Rails instead
+- Widget model to test social features
 
 - cleanup authentication to basics
 - only log out on POST
@@ -15,9 +16,7 @@
 
 Big Stuff:
 - administrator role and area
-- public user profiles, public list
 - sitemaps
-- sending private messages
 - watching users
 - friending users
 - settings
@@ -27,4 +26,5 @@ Big Stuff:
 - preference store
 - profile photo
 - news feed (CRUDed objects by watched users)
+  -- with RSS/Atom
 - queued mail delivery
