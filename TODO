@@ -9,11 +9,6 @@
 - pull out names as constants
   -- mailers
   
-- until launch site should be protected and return 404
-  -- coming soon page?
-  -- make the transition in one place, back and forth
-  -- tests should verify the transition too
-
 Big Stuff:
 - administrator role and area
 - sitemaps
@@ -21,9 +16,7 @@ Big Stuff:
 - friending users
 - settings
 - time zone preference
-- change password
 - validate email address
-- preference store
 - profile photo
 - news feed (CRUDed objects by watched users)
   -- with RSS/Atom

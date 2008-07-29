@@ -21,8 +21,15 @@ Enjoy.  Feel free to rip giant holes in it by commenting and forking.
 
 ## Features
 
-- user profiles
-- users can send private messages
+- user authentication
+- public user profiles
+- private messages between users
+
+### Minor Features
+
+- home page
+- preferences
+- change password
 
 ## Updates
 

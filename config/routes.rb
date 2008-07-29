@@ -48,5 +48,13 @@ ActionController::Routing::Routes.draw do |map|
     profile.connect '/person/:username', :action => 'user'
     profile.people  '/people',           :action => 'list'
   end
+  
+  ### ADMIN
+  
+  #admin_users
+  map.with_options :controller => "admin_users" do |admin_users|
+    admin_users.admin_users '/admin/users',    :action => 'list'
+    admin_users.connect     '/admin/user/:id', :action => 'show'
+  end
 
 end

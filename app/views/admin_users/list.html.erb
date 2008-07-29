@@ -1,0 +1,17 @@
+<p>
+  There are <%= @users.size %> users signed up
+</p>
+<table class="bordered">
+  <tr>
+    <th>Username</th>
+    <th>Created at</th>
+    <th>Email</th>
+  </tr>
+<% for user in @users -%>
+  <tr>
+    <td><%= admin_link_user(user) %></td>
+    <td nowrap><%= format_datetime(user.created_at) %></td>
+    <td><%= user.email %></td>
+  </tr>
+<% end -%>
+</table>

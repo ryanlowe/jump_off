@@ -1,5 +1,6 @@
 
 Jul 29
+= add AdminUser controller
 = add User subclass Administrator
 - preferences page
 = add PreferenceStore model

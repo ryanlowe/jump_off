@@ -41,8 +41,12 @@ module AuthenticatedSystem
       logged_in? ? true : access_denied
     end
     
+    def admin_login_required
+      (logged_in? and current_user.admin?) ? true : render_404
+    end
+    
     def launch_required
-      (launched? or logged_in?) ? true : access_denied
+      (launched? or logged_in?) ? true : render_404
     end
     
     # Redirect as appropriate when an access request fails.
@@ -65,6 +69,7 @@ module AuthenticatedSystem
     
     def render_404
       render :file => "site/404.html", :use_full_path => true, :status => 404
+      false
     end
     
     # Store the URI of the current request in the session.
