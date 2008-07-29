@@ -16,8 +16,8 @@ ActionController::Routing::Routes.draw do |map|
   
   #settings
   map.with_options :controller => "settings" do |settings|
-    # settings.preferences     '/settings/preferences',        :action => 'preferences'
-    # settings.connect         '/settings/update/preferences', :action => 'update_preferences'
+    settings.preferences     '/settings/preferences',        :action => 'preferences'
+    settings.connect         '/settings/update/preferences', :action => 'update_preferences'
     settings.change_password '/settings/change/password',    :action => 'change_password'
     settings.connect         '/settings/update/password',    :action => 'update_password'
   end

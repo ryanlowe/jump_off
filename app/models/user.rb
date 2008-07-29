@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   validates_length_of       :email,    :within => 3..100, :allow_nil => true, :allow_blank => true
   validates_uniqueness_of   :username, :case_sensitive => false
   before_save :encrypt_password
+  
+  has_one :preference_store
 
   # Authenticates a user by their username and unencrypted password.  Returns the user or nil.
   def self.authenticate(username, password)

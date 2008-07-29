@@ -6,27 +6,26 @@ class SettingsController < ApplicationController
   verify :method => :post, :only => [ :update_preferences, :update_password ],
          :redirect_to => { :controller => 'site', :action => 'front' }
   
-  # def preferences
-  #   @pref_store = current_user.pref_store
-  #   @pref_store = PrefStore.new if @pref_store.nil?
-  #   @title = "Preferences"
-  #   @omit_h1 = true
-  # end
-  # 
-  # def update_preferences
-  #   @pref_store = current_user.pref_store
-  #   if @pref_store.nil?
-  #     @pref_store = PrefStore.new
-  #     @pref_store.user_id = current_user.id
-  #     @pref_store.save
-  #   end
-  #   if @pref_store.update_attributes(params[:pref_store])
-  #     flash[:notice] = 'Your preferences were successfully saved.'
-  #     redirect_to :action => 'preferences'
-  #   else
-  #     render :action => 'preferences'
-  #   end
-  # end
+  def preferences
+    @preference_store = current_user.preference_store
+    @preference_store = PreferenceStore.new if @preference_store.nil?
+    @title = "Preferences"
+  end
+  
+  def update_preferences
+    @preference_store = current_user.preference_store
+    if @preference_store.nil?
+      @preference_store = PreferenceStore.new
+      @preference_store.user_id = current_user.id
+      @preference_store.save
+    end
+    if @preference_store.update_attributes(params[:preference_store])
+      flash[:notice] = 'Your preferences were successfully saved.'
+      redirect_to :action => 'preferences'
+    else
+      render :action => 'preferences'
+    end
+  end
   
   def change_password
     @title = "Change Your Password"
