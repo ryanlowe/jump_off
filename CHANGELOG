@@ -1,6 +1,8 @@
 
 Jul 29
+= add User subclass Administrator
 - preferences page
+= add PreferenceStore model
 - change password page
 
 Jul 28

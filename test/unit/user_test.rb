@@ -6,6 +6,9 @@ class UserTest < Test::Unit::TestCase
   def test_fixtures
     assert users(:ryanlowe).valid?
     assert users(:jonny).valid?
+    
+    assert  users(:ryanlowe).admin?
+    assert !users(:jonny).admin?
   end
 
   def test_should_create_user

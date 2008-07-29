@@ -41,6 +41,10 @@ class User < ActiveRecord::Base
     (self.id == user.id)
   end
   
+  def admin?
+    false #subclasses can override
+  end
+  
   def full_name
     username
   end

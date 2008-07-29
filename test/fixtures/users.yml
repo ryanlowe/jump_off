@@ -1,5 +1,6 @@
 ryanlowe:
   id: 100001
+  type: Administrator
   username: ryanlowe
   email: ryanlowe@example.com
   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
