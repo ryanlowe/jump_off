@@ -39,6 +39,7 @@ Rails::Initializer.run do |config|
   
   config.load_paths += %W[
     #{RAILS_ROOT}/app/controllers/admin
+    #{RAILS_ROOT}/app/helpers/admin
     #{RAILS_ROOT}/app/mailers
     #{RAILS_ROOT}/app/models/users
     #{RAILS_ROOT}/app/observers
