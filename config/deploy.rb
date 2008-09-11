@@ -5,7 +5,7 @@ set :user, "deploy"
 default_run_options[:pty] = true
 set :repository,  "git@github.com:ryanlowe/#{project}.git"
 set :scm, "git"
-set :branch, "origin/master"
+set :branch, "master"
 
 set :deploy_to, "/home/#{user}/rails/#{project}"
 set :deploy_via, :remote_cache
