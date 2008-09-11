@@ -27,8 +27,10 @@ class AccountController < ApplicationController
   end
   
   def logout
-    reset_session
-    flash[:notice] = "You have been logged out."
+    if request.post?
+      reset_session 
+      flash[:notice] = "You have been logged out."
+    end
     redirect_back_or_default(front_url)
   end
   

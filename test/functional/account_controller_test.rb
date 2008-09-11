@@ -54,8 +54,15 @@ class AccountControllerTest < ActionController::TestCase
 
   def test_should_logout
     login_as :ryanlowe
-    get :logout
+    post :logout
     assert_nil session[:user]
+    assert_response :redirect
+  end
+  
+  def test_should_not_logout_get
+    login_as :ryanlowe
+    get :logout
+    assert_not_nil session[:user]
     assert_response :redirect
   end
 

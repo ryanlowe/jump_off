@@ -1,5 +1,6 @@
 
 Sep 11
+= require POST to log out
 = add default nginx conf
 = add default script/spin
 - better static 4xx/500 error pages
