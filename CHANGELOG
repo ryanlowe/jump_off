@@ -1,5 +1,6 @@
 
 Sep 11
+= remove client_date; use Rails 2.1 TZ support instead
 - tabs should show if user has unread messages
 = move mailers' views to /app/views/mailers
 - show Admin link if user is Administrator

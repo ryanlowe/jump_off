@@ -10,7 +10,7 @@
 <% for user in @users -%>
   <tr>
     <td><%= admin_link_user(user) %></td>
-    <td nowrap><%= format_datetime(user.created_at) %></td>
+    <td nowrap><%= format_date(user.created_at,true) %></td>
     <td><%= user.email %></td>
   </tr>
 <% end -%>
