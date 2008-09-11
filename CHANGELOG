@@ -1,5 +1,6 @@
 
 Sep 11
+- login form on front page
 - login: show error message on bad username and password combination
 = remove client_date; use Rails 2.1 TZ support instead
 - tabs should show if user has unread messages
