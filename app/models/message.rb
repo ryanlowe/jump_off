@@ -96,5 +96,9 @@ class Message < ActiveRecord::Base
   def self.find_trash(user_id)
     Message.find_all_by_sent_to(user_id, :conditions => "deleted_at IS NOT NULL", :order => "created_at DESC")
   end
+  
+  def self.inbox_unread_count(user_id)
+    Message.find_all_by_sent_to(user_id, :conditions => "read_at IS NULL AND deleted_at IS NULL", :order => "created_at DESC").size
+  end
 
 end

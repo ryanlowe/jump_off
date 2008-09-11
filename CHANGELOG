@@ -1,5 +1,6 @@
 
 Sep 11
+- tabs should show if user has unread messages
 = move mailers' views to /app/views/mailers
 - show Admin link if user is Administrator
 = use Rails 2.1 time zone support, Eastern by default
