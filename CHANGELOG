@@ -1,5 +1,6 @@
 
 Sep 11
+= add default script/spin
 - better static 4xx/500 error pages
 - login form on front page
 - login: show error message on bad username and password combination

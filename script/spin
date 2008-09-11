@@ -1,0 +1,2 @@
+#!/bin/sh
+/home/deploy/rails/jump_off/current/script/process/spawner -p 8000 -i 1
