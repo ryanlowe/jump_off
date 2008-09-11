@@ -1,5 +1,5 @@
-set :application, DOMAIN_NAME
-set :project, PROJECT_NAME
+set :application, "example.com"
+set :project, "jump_off"
 set :user, "deploy"
 
 default_run_options[:pty] = true
