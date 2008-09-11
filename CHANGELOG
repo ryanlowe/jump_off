@@ -1,5 +1,6 @@
 
 Sep 11
+= move mailers' views to /app/views/mailers
 - show Admin link if user is Administrator
 = use Rails 2.1 time zone support, Eastern by default
 = add Rails 2.1.1 to vendor/rails
