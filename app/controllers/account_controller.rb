@@ -9,6 +9,8 @@ class AccountController < ApplicationController
     if logged_in?
       redirect_back_or_default(home_url)
       flash[:notice] = "Logged in successfully"
+    else
+      flash[:notice] = "Log in failed: bad username and password combination"
     end
   end
 
