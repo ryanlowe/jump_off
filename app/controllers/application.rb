@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include AuthenticatedSystem
+  include ExceptionNotifiable
   helper :messages
   
   # protect against forged cross-site scripting attacks
