@@ -1,4 +1,7 @@
 
+Sep 11
+= remove Rails 2.1.0 from vendor/rails
+
 Jul 29
 = add AdminUser controller
 = add User subclass Administrator
