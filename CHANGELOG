@@ -1,5 +1,6 @@
 
 Sep 11
+= record last touched datetime, show in admin
 = require POST to log out
 = add default nginx conf
 = add default script/spin
