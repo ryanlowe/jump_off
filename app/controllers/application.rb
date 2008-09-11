@@ -13,4 +13,13 @@ class ApplicationController < ActionController::Base
   # for admin views
   prepend_view_path(RAILS_ROOT+"/app/views/admin")
   
+  # use Eastern Time by default
+  before_filter :set_time_zone
+  
+  protected
+  
+    def set_time_zone
+      Time.zone = "Eastern Time (US & Canada)"
+    end
+  
 end

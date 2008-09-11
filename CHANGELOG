@@ -1,5 +1,6 @@
 
 Sep 11
+= use Rails 2.1 time zone support, Eastern by default
 = add Rails 2.1.1 to vendor/rails
 = remove Rails 2.1.0 from vendor/rails
 
