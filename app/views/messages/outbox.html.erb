@@ -6,7 +6,7 @@
     <ul id="messages">
 <%   for message in @messages -%>
       <li>
-        <input type="checkbox"/><%= message.recipient.full_name %>              
+        <!--input type="checkbox"/--><%= message.recipient.full_name %>              
         <%= link_to EasyFormat.format(message.subject_to_s), :action => 'outgoing', :id => message -%>                
       </li>
 <%   end -%>
