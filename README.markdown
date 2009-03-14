@@ -10,7 +10,8 @@ Besides, I'm all out of private GitHub repositories.
 Enjoy.  Feel free to rip giant holes in it by commenting and forking.
 
 My TODO list for this project is in Lighterest:
-http://lighterest.com/public/ryanlowe/jump_off
+
+[http://lighterest.com/public/ryanlowe/jump_off](http://lighterest.com/public/ryanlowe/jump_off)
 
 ## Usage
 
