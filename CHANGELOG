@@ -1,6 +1,8 @@
 
 Mar 14
-- remove Rails 2.1.1 from vendor/rails
+= update project files for Rails 2.2.2
+= add Rails 2.2.2 to vendor/rails
+= remove Rails 2.1.1 from vendor/rails
 
 === 2008
 
