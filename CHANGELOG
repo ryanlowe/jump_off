@@ -1,4 +1,9 @@
 
+Mar 14
+- remove Rails 2.1.1 from vendor/rails
+
+=== 2008
+
 Sep 11
 = record last touched datetime, show in admin
 = require POST to log out
