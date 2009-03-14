@@ -1,5 +1,6 @@
 
 Mar 14
+= bugfix: static error files had localhost:1500 in them
 = bugfix: HOST in production.rb should not have http://
 = update project files for Rails 2.2.2
 = add Rails 2.2.2 to vendor/rails
